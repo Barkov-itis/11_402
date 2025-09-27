@@ -48,47 +48,49 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer = response.getWriter();
-
-        StringBuilder resultHtml = new StringBuilder();
-
-                resultHtml.append("<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "    <title>Users</title>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<h1>Users</h1>\n" +
-                "<div>\n" +
-                "    <table>\n" +
-                "        <tr>\n" +
-                "            <th>ID</th>\n" +
-                "            <th>FIRST NAME</th>\n" +
-                "            <th>LAST NAME</th>\n" +
-                "            <th>AGE</th>\n" +
-                "        </tr>\n");
-
-                for (User user : users) {
-                    resultHtml.append("<tr>\n");
-                    resultHtml.append("<td>").append(user.getId()).append("</td>\n");
-                    resultHtml.append("<td>").append(user.getFirstName()).append("</td>\n");
-                    resultHtml.append("<td>").append(user.getLastName()).append("</td>\n");
-                    resultHtml.append("<td>").append(user.getAge()).append("</td>\n");
-                    resultHtml.append("</tr>");
-                }
-
-                resultHtml.append("    </table>\n" +
-                "</div>\n" +
-                "</body>\n" +
-                "</html>");
-
-                writer.write(resultHtml.toString());
+//        PrintWriter writer = response.getWriter();
+//
+//        StringBuilder resultHtml = new StringBuilder();
+//
+//                resultHtml.append("<!DOCTYPE html>\n" +
+//                "<html lang=\"en\">\n" +
+//                "<head>\n" +
+//                "    <meta charset=\"UTF-8\">\n" +
+//                "    <title>Users</title>\n" +
+//                "</head>\n" +
+//                "<body>\n" +
+//                "<h1>Users</h1>\n" +
+//                "<div>\n" +
+//                "    <table>\n" +
+//                "        <tr>\n" +
+//                "            <th>ID</th>\n" +
+//                "            <th>FIRST NAME</th>\n" +
+//                "            <th>LAST NAME</th>\n" +
+//                "            <th>AGE</th>\n" +
+//                "        </tr>\n");
+//
+//                for (User user : users) {
+//                    resultHtml.append("<tr>\n");
+//                    resultHtml.append("<td>").append(user.getId()).append("</td>\n");
+//                    resultHtml.append("<td>").append(user.getFirstName()).append("</td>\n");
+//                    resultHtml.append("<td>").append(user.getLastName()).append("</td>\n");
+//                    resultHtml.append("<td>").append(user.getAge()).append("</td>\n");
+//                    resultHtml.append("</tr>");
+//                }
+//
+//                resultHtml.append("    </table>\n" +
+//                "</div>\n" +
+//                "</body>\n" +
+//                "</html>");
+//
+//                writer.write(resultHtml.toString());
+        request.setAttribute("usersForJsp", users);
+        request.getRequestDispatcher("/jsp/users.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        super.doPost(request, response);
     }
 
 }
