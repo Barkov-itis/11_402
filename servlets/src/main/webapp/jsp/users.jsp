@@ -17,9 +17,8 @@
         <c:forEach items="${usersForJsp}" var="user">
             <tr>
                 <td>${user.id}</td>
-                <td>${user.firstName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.age}</td>
+                <td>${user.name}</td>
+                <td>${user.surname}</td>
             </tr>
         </c:forEach>
 
