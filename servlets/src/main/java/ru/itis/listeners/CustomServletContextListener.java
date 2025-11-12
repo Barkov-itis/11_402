@@ -6,12 +6,11 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.sql.DriverManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import ru.itis.repository.FilesRepository;
+import ru.itis.repository.FilesRepositoryImpl;
 import ru.itis.repository.UsersRepository;
 import ru.itis.repository.UsersRepositoryJdbcImpl;
-import ru.itis.services.SignUpService;
-import ru.itis.services.SignUpServiceImpl;
-import ru.itis.services.UsersService;
-import ru.itis.services.UsersServiceImpl;
+import ru.itis.services.*;
 
 @WebListener
 public class CustomServletContextListener implements ServletContextListener {
@@ -35,10 +34,13 @@ public class CustomServletContextListener implements ServletContextListener {
         UsersRepository usersRepository = new UsersRepositoryJdbcImpl(dataSource);
         SignUpService signUpService = new SignUpServiceImpl(usersRepository);
         UsersService usersService = new UsersServiceImpl(usersRepository);
+        FilesRepository filesRepository = new FilesRepositoryImpl(dataSource);
+        FilesService filesService = new FilesServiceImpl(filesRepository);
 
         servletContext.setAttribute("usersRepository", usersRepository);
         servletContext.setAttribute("signUpService", signUpService);
         servletContext.setAttribute("usersService", usersService);
+        servletContext.setAttribute("filesService", filesService);
     }
 
     @Override
