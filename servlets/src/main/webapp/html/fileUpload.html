@@ -8,9 +8,24 @@
     <title>Document</title>
 </head>
 <body>
+<style>
+    img {
+        height: 15%;
+    }
+    .photo {
+        float: left;
+        /*margin-left: 150px;*/
+        margin-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+</style>
 <form action="/files" method="post" enctype="multipart/form-data">
     <input type="file" name="file">
     <input type="submit" value="File Upload">
 </form>
+<div class="photo">
+    <img src="http://localhost:8080/uploaded/files?id=2">
+</div>
 </body>
 </html>

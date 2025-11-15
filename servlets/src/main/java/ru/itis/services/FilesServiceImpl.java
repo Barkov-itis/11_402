@@ -43,7 +43,7 @@ public class FilesServiceImpl implements FilesService{
         // нашли файл в базе (инфо о файле)
         FileInfo fileInfo = filesRepository.findById(fileId);
         // нашли файл на диске
-        File file = new File("C://files" + fileInfo.getStorageFileName() + "." + fileInfo.getType().split("/")[1]);
+        File file = new File("C://files/" + fileInfo.getStorageFileName() + "." + fileInfo.getType().split("/")[1]);
         try {
             //записали его в ответ
             Files.copy(file.toPath(), outputStream);
