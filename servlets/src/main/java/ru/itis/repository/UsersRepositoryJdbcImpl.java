@@ -52,4 +52,36 @@ public class UsersRepositoryJdbcImpl implements UsersRepository{
             throw new IllegalStateException(e);
         }
     }
+
+//    public List<GunStats> findGunStatsByLogin(String login) {
+//        System.out.println("Function: findGunStatsByLogin started");
+//        try {
+//            Connection connection = dataSource.getConnection();
+//            PreparedStatement statement = connection.prepareStatement(SQL_GET_GUN_STATS);
+//
+//            statement.setString(1, login);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            System.out.println(resultSet);
+//            List<GunStats> list = new ArrayList<>();
+//
+//            boolean hasRows = resultSet.next(); // перемещаем курсор на первую строку
+//            System.out.println("ResultSet has rows: " + hasRows);
+//
+//            while (resultSet.next()) {
+//                System.out.println(resultSet.getString(1) + ", " + resultSet.getInt(2) + ", " + resultSet.getInt(3) + ", " + resultSet.getInt(4));
+//                GunStats gunStats = new GunStats(
+//                        resultSet.getString(1),
+//                        resultSet.getInt(2),
+//                        resultSet.getInt(3),
+//                        resultSet.getInt(4)
+//                );
+//                list.add(gunStats);
+//            }
+//            System.out.println("Function: findGunStatsByLogin finished");
+//            return list;
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }
