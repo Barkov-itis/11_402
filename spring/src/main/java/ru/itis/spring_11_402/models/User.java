@@ -22,6 +22,7 @@ public class User {
 
     private String email;
     private String password;
+    private String name;
 
     @OneToMany(mappedBy = "author")
     private List<Article> createdArticles;
@@ -30,4 +31,5 @@ public class User {
     private List<Article> articles;
 
     private Role role;
+    private String confirmed;
 }
