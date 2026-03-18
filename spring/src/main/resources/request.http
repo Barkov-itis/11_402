@@ -1,0 +1,12 @@
+POST http://localhost:8080/service
+Content-Type: application/json
+
+{
+  "name": "Терапевт",
+  "cost": "900",
+  "date": "29-02-2026"
+}
+
+###
+
+GET localhost:8080/papers/service/search?page=1&size=2

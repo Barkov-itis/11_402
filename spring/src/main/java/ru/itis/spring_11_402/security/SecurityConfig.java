@@ -1,4 +1,4 @@
-package ru.itis.spring_11_402.repository;
+package ru.itis.spring_11_402.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,11 +35,13 @@ public class SecurityConfig {
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll())
-                .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/signUp","/images/**",
-                                "/css/**","/js/**",
-                                "/*.css","/*.js").permitAll().anyRequest().authenticated());
+                .authorizeHttpRequests((request) -> request
+                        .requestMatchers("/**").permitAll());
+//                .authorizeHttpRequests((requests) -> requests
+//                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+//                        .requestMatchers("/signUp","/images/**",
+//                                "/css/**","/js/**",
+//                                "/*.css","/*.js").permitAll().anyRequest().authenticated());
         return http.build();
     }
 }
