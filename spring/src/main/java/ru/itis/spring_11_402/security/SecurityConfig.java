@@ -21,7 +21,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.
-                csrf(CsrfConfigurer::disable)
+                //csrf(CsrfConfigurer::disable)
+                csrf(csrf -> csrf.ignoringRequestMatchers("/signIn"))
                 .formLogin((form) -> form
                         .loginPage("/signIn")
                         .usernameParameter("email")
