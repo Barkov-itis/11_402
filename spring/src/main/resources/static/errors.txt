@@ -1,0 +1,2 @@
+
+[2026-04-10T09:05:57.366671600] Ошибка: User(accountId=7, email=pgjerreji@mail.ru, password=$2a$10$tv47J557g68GCs8k1ptm3.eyJabck0LhB/rAKUGrnFqTJ19ottolS, name=ihueruiberu, createdArticles=null, articles=null, role=ADMIN, confirmed=NOT_CONFIRMED, confirmCode=1ee41a65-83ca-4656-b9d9-b234118f5a45)
