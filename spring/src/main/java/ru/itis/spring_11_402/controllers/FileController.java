@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import ru.itis.spring_11_402.services.CurrencyRateLoader;
 import ru.itis.spring_11_402.services.FileStrorageService;
 
 @Controller
@@ -17,8 +18,13 @@ public class FileController {
     @Autowired
     private FileStrorageService fileStorageService;
 
+    @Autowired
+    private CurrencyRateLoader currencyRateLoader;
+
     @GetMapping("/files")
     public String getFilesUploadPage() {
+        String rates = currencyRateLoader.getCurrencyRates();
+        System.out.println(rates);
         return "file_upload_page";
     }
 
